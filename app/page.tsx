@@ -122,7 +122,20 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 2. The Problem — WHITE */}
+      {/* 2. THE SIGNATURE: Before / After Showcase */}
+      <section className="relative z-10 px-6 py-20 md:py-32 md:px-12 border-t border-white/10">
+        <FadeIn className="mb-10 md:mb-12 text-center">
+          <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Before &amp; After</div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
+            Real local businesses. Drag the slider to see the transformation.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.15}>
+          <RedesignShowcase />
+        </FadeIn>
+      </section>
+
+      {/* 3. The Problem — WHITE */}
       <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
@@ -147,19 +160,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* 3. THE SIGNATURE: Before / After Showcase */}
-      <section className="relative z-10 px-6 py-20 md:py-32 md:px-12 border-t border-white/10">
-        <FadeIn className="mb-10 md:mb-12 text-center">
-          <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Before &amp; After</div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
-            Real local businesses. Drag the slider to see the transformation.
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.15}>
-          <RedesignShowcase />
-        </FadeIn>
       </section>
 
       {/* 4. What We Do — two paths */}
