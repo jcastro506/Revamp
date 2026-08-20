@@ -16,8 +16,11 @@ import {
   Star,
 } from "lucide-react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import { RedesignShowcase } from "@/components/redesign-showcase";
+
+const Hero3D = dynamic(() => import("@/components/hero-3d"), { ssr: false });
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -86,51 +89,41 @@ export default function Home() {
       </nav>
 
       {/* 1. Hero Section */}
-      <section className="relative z-10 flex flex-col justify-center px-6 pt-36 pb-16 md:px-12">
-        <motion.div style={{ opacity }} className="max-w-4xl mx-auto text-center">
+      <section className="relative z-10 flex min-h-[92vh] flex-col justify-center overflow-hidden px-6 pt-32 pb-20 md:px-12 md:pt-36">
+        {/* 3D animated background */}
+        <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <Hero3D />
+          {/* Fade the 3D into the page edges so text stays legible */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        </div>
+
+        <motion.div style={{ opacity }} className="relative z-10 max-w-4xl mx-auto text-center">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-gray-300 mb-8">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Free homepage redesign — no strings attached
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-display mb-8 leading-[1.05]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-display mb-6 md:mb-8 leading-[1.08] md:leading-[1.05] text-balance">
               Your business deserves a website that actually <span className="text-gray-300 italic">wins customers.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="max-w-2xl mx-auto text-xl text-gray-300 md:text-2xl leading-relaxed mb-10">
-              We redesign outdated local business websites — or build you a brand-new one from scratch — so you look as good online as you are in person. See the difference for yourself below.
+            <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 md:text-2xl leading-relaxed mb-8 md:mb-10 text-pretty">
+              We redesign outdated local business websites — or build you a brand-new one from scratch — so you look as good online as you are in person.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.4} className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <FadeIn delay={0.4} className="flex flex-col items-center gap-4">
             <Link
               href="/audit"
-              className="px-8 py-4 text-lg font-bold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-bold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2"
             >
               Get My Free Redesign Preview <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-sm text-gray-400 mt-2 sm:mt-0 sm:ml-4">Takes 2 minutes. No sales pitch.</p>
+            <p className="text-sm text-gray-400">Takes 2 minutes. No sales pitch.</p>
           </FadeIn>
         </motion.div>
       </section>
 
-      {/* 2. THE SIGNATURE: Before / After Showcase */}
-      <section className="relative z-10 px-6 pb-32 md:px-12">
-        <FadeIn className="mb-12 text-center">
-          <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Before &amp; After</div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
-            Real local businesses. Drag the slider to see the transformation.
-          </h2>
-        </FadeIn>
-        <FadeIn delay={0.15}>
-          <RedesignShowcase />
-        </FadeIn>
-      </section>
-
-      {/* 3. The Problem — WHITE */}
-      <section className="relative z-10 py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
+      {/* 2. The Problem — WHITE */}
+      <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">The Problem</div>
@@ -156,8 +149,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3. THE SIGNATURE: Before / After Showcase */}
+      <section className="relative z-10 px-6 py-20 md:py-32 md:px-12 border-t border-white/10">
+        <FadeIn className="mb-10 md:mb-12 text-center">
+          <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Before &amp; After</div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
+            Real local businesses. Drag the slider to see the transformation.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.15}>
+          <RedesignShowcase />
+        </FadeIn>
+      </section>
+
       {/* 4. What We Do — two paths */}
-      <section className="relative z-10 py-32 px-6 md:px-12">
+      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">What We Do</div>
@@ -208,11 +214,11 @@ export default function Home() {
       </section>
 
       {/* 5. How It Works */}
-      <section className="relative z-10 py-32 border-t border-white/10 px-6 md:px-12">
+      <section className="relative z-10 py-20 md:py-32 border-t border-white/10 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">How It Works</div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-20 max-w-2xl text-balance">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-14 md:mb-20 max-w-2xl text-balance">
               Three steps. No jargon. No 47-page proposals.
             </h2>
           </FadeIn>
@@ -238,15 +244,15 @@ export default function Home() {
       </section>
 
       {/* 6. Proof / Stats — WHITE */}
-      <section className="relative z-10 py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
+      <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-6xl mx-auto">
-          <FadeIn className="text-center mb-20">
+          <FadeIn className="text-center mb-14 md:mb-20">
             <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">The Difference A Redesign Makes</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
               A modern site isn't a vanity project. It's your hardest-working salesperson.
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12 md:gap-12 text-center">
             {[
               { number: "2×", label: "More phone calls and form submissions after a redesign" },
               { number: "3 sec", label: "The load time we design every site to beat" },
@@ -263,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* 7. Founding Clients / Pricing */}
-      <section className="relative z-10 py-32 border-t border-white/10 px-6 md:px-12 bg-black">
+      <section className="relative z-10 py-20 md:py-32 border-t border-white/10 px-6 md:px-12 bg-black">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Limited Availability</div>
@@ -309,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* 8. FAQ — WHITE */}
-      <section className="relative z-10 py-32 px-6 md:px-12 border-t border-gray-200 bg-white text-black">
+      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-gray-200 bg-white text-black">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Common Questions</div>
@@ -334,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* 9. Final CTA — BLACK */}
-      <section id="audit" className="relative z-10 py-40 px-6 md:px-12 bg-black text-white text-center border-t border-white/10">
+      <section id="audit" className="relative z-10 py-24 md:py-40 px-6 md:px-12 bg-black text-white text-center border-t border-white/10">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="flex justify-center gap-1 mb-8">
@@ -342,7 +348,7 @@ export default function Home() {
                 <Star key={i} className="w-5 h-5 fill-white text-white" />
               ))}
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter font-display mb-8 leading-tight text-balance">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter font-display mb-8 leading-tight text-balance">
               Your competitors already look better online.
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">

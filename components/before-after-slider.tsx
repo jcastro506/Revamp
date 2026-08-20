@@ -51,7 +51,7 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="group relative aspect-[16/10] w-full select-none overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl"
+      className="group relative aspect-[16/10] w-full touch-none select-none overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl"
       onMouseDown={(e) => {
         setIsDragging(true);
         updateFromClientX(e.clientX);
