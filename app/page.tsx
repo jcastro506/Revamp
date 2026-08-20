@@ -40,10 +40,10 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-200 last:border-0">
+    <div className="border-b border-white/10 last:border-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-center justify-between text-left hover:text-gray-500 transition-colors"
+        className="w-full py-6 flex items-center justify-between text-left hover:text-gray-300 transition-colors"
       >
         <span className="text-lg font-bold">{question}</span>
         {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -57,7 +57,7 @@ function Accordion({ question, answer }: { question: string; answer: string }) {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-gray-600 leading-relaxed">{answer}</p>
+            <p className="pb-6 text-gray-400 leading-relaxed">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -70,42 +70,36 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-white/20 font-sans">
-      {/* Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-white/[0.03] blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-white/[0.02] blur-[120px]" />
-      </div>
-
+    <main className="min-h-screen bg-white text-black selection:bg-black/10 font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md border-b border-white/5 bg-black/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md border-b border-black/5 bg-white/70">
         <div className="text-xl font-bold tracking-tighter font-display">Revamp</div>
         <Link
           href="/audit"
-          className="px-5 py-2 text-sm font-medium transition-colors bg-white text-black hover:bg-gray-200 rounded-full"
+          className="px-5 py-2 text-sm font-medium transition-colors bg-black text-white hover:bg-gray-800 rounded-full"
         >
           Get a Free Redesign Preview →
         </Link>
       </nav>
 
-      {/* 1. Hero Section */}
-      <section className="relative z-10 flex min-h-[92vh] flex-col justify-center overflow-hidden px-6 pt-32 pb-20 md:px-12 md:pt-36">
+      {/* 1. Hero Section — WHITE */}
+      <section className="relative z-10 flex min-h-[92vh] flex-col justify-center overflow-hidden px-6 pt-32 pb-20 md:px-12 md:pt-36 bg-white text-black">
         {/* 3D animated background */}
         <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
           <Hero3D />
           {/* Fade the 3D into the page edges so text stays legible */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white" />
         </div>
 
         <motion.div style={{ opacity }} className="relative z-10 max-w-4xl mx-auto text-center">
           <FadeIn>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter font-display mb-6 md:mb-8 leading-[1.08] md:leading-[1.05] text-balance">
-              Your business deserves a website that actually <span className="text-gray-300 italic">wins customers.</span>
+              Your business deserves a website that actually <span className="text-gray-500 italic">wins customers.</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 md:text-2xl leading-relaxed mb-8 md:mb-10 text-pretty">
+            <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 md:text-2xl leading-relaxed mb-8 md:mb-10 text-pretty">
               We redesign outdated local business websites — or build you a brand-new one from scratch — so you look as good online as you are in person.
             </p>
           </FadeIn>
@@ -113,17 +107,17 @@ export default function Home() {
           <FadeIn delay={0.4} className="flex flex-col items-center gap-4">
             <Link
               href="/audit"
-              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-bold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-bold bg-black text-white hover:bg-gray-800 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(0,0,0,0.4)] flex items-center justify-center gap-2"
             >
               Get My Free Redesign Preview <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-sm text-gray-400">Takes 2 minutes. No sales pitch.</p>
+            <p className="text-sm text-gray-500">Takes 2 minutes. No sales pitch.</p>
           </FadeIn>
         </motion.div>
       </section>
 
-      {/* 2. THE SIGNATURE: Before / After Showcase */}
-      <section className="relative z-10 px-6 py-20 md:py-32 md:px-12 border-t border-white/10">
+      {/* 2. THE SIGNATURE: Before / After Showcase — BLACK */}
+      <section className="relative z-10 px-6 py-20 md:py-32 md:px-12 border-t border-white/10 bg-black text-white">
         <FadeIn className="mb-10 md:mb-12 text-center">
           <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Before &amp; After</div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
@@ -162,8 +156,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. What We Do — two paths */}
-      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12">
+      {/* 4. What We Do — two paths — BLACK */}
+      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-white/10 bg-black text-white">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">What We Do</div>
@@ -213,11 +207,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. How It Works */}
-      <section className="relative z-10 py-20 md:py-32 border-t border-white/10 px-6 md:px-12">
+      {/* 5. How It Works — WHITE */}
+      <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">How It Works</div>
+            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">How It Works</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-14 md:mb-20 max-w-2xl text-balance">
               Three steps. No jargon. No 47-page proposals.
             </h2>
@@ -230,24 +224,24 @@ export default function Home() {
               { icon: <Rocket className="w-7 h-7" />, step: "3", title: "We Launch It For You", desc: "We handle the domain, hosting, and go-live so nothing breaks. Your new site goes up, and you start looking like the best option in your area.", time: "LAUNCH DAY" },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.2} className="relative">
-                <div className="w-20 h-20 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-6 border border-white/10 text-white">
+                <div className="w-20 h-20 mx-auto bg-black rounded-full flex items-center justify-center mb-6 text-white">
                   {item.icon}
                 </div>
                 <div className="text-sm font-display font-bold text-gray-500 mb-2">STEP {item.step}</div>
                 <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{item.desc}</p>
-                <span className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-bold tracking-wider">{item.time}</span>
+                <p className="text-gray-600 mb-6 leading-relaxed">{item.desc}</p>
+                <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold tracking-wider">{item.time}</span>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. Proof / Stats — WHITE */}
-      <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
+      {/* 6. Proof / Stats — BLACK */}
+      <section className="relative z-10 py-20 md:py-32 border-t border-white/10 px-6 md:px-12 bg-black text-white">
         <div className="max-w-6xl mx-auto">
           <FadeIn className="text-center mb-14 md:mb-20">
-            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">The Difference A Redesign Makes</div>
+            <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">The Difference A Redesign Makes</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display max-w-2xl mx-auto text-balance">
               A modern site isn't a vanity project. It's your hardest-working salesperson.
             </h2>
@@ -260,26 +254,26 @@ export default function Home() {
               { number: "0", label: "Technical work required from you" },
             ].map((stat, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="text-5xl md:text-6xl font-display font-bold text-black mb-4">{stat.number}</div>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-[160px] mx-auto">{stat.label}</p>
+                <div className="text-5xl md:text-6xl font-display font-bold text-white mb-4">{stat.number}</div>
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed max-w-[160px] mx-auto">{stat.label}</p>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. Founding Clients / Pricing */}
-      <section className="relative z-10 py-20 md:py-32 border-t border-white/10 px-6 md:px-12 bg-black">
+      {/* 7. Founding Clients / Pricing — WHITE */}
+      <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Limited Availability</div>
+            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Limited Availability</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-8 max-w-3xl text-balance">
               We&apos;re taking on 10 founding clients — at a rate we won&apos;t offer again.
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <p className="text-xl text-gray-300 max-w-3xl leading-relaxed mb-16">
+            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed mb-16">
               We&apos;re a new studio, and we&apos;re not going to pretend otherwise. Instead of fake testimonials, here&apos;s the deal: our first 10 clients get our lowest rate, our most hands-on attention, and a direct line to the people actually building your site. As we grow, prices go up and spots run out.
             </p>
           </FadeIn>
@@ -291,10 +285,10 @@ export default function Home() {
               { title: "You Only Pay If You Love It", desc: "Your redesign preview is free. You see the new look before you commit to anything. If it doesn't wow you, you walk away owing nothing.", highlight: "See it before you buy it" },
             ].map((card, i) => (
               <FadeIn key={i} delay={i * 0.15}>
-                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 h-full flex flex-col">
+                <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200 h-full flex flex-col">
                   <h3 className="text-xl font-bold mb-3">{card.title}</h3>
-                  <p className="text-gray-300 leading-relaxed mb-6 flex-1">{card.desc}</p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-sm font-medium text-white w-fit">
+                  <p className="text-gray-600 leading-relaxed mb-6 flex-1">{card.desc}</p>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black text-sm font-medium text-white w-fit">
                     <CheckCircle className="w-4 h-4" />
                     {card.highlight}
                   </div>
@@ -306,7 +300,7 @@ export default function Home() {
           <FadeIn delay={0.5} className="mt-16 text-center">
             <Link
               href="/audit"
-              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold bg-black text-white hover:bg-gray-800 rounded-full transition-all hover:scale-105"
             >
               Claim Your Founding Spot <ArrowRight className="w-5 h-5" />
             </Link>
@@ -314,11 +308,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. FAQ — WHITE */}
-      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-gray-200 bg-white text-black">
+      {/* 8. FAQ — BLACK */}
+      <section className="relative z-10 py-20 md:py-32 px-6 md:px-12 border-t border-white/10 bg-black text-white">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
-            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Common Questions</div>
+            <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Common Questions</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-12">Straight answers.</h2>
           </FadeIn>
 
@@ -339,28 +333,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Final CTA — BLACK */}
-      <section id="audit" className="relative z-10 py-24 md:py-40 px-6 md:px-12 bg-black text-white text-center border-t border-white/10">
+      {/* 9. Final CTA — WHITE */}
+      <section id="audit" className="relative z-10 py-24 md:py-40 px-6 md:px-12 bg-white text-black text-center border-t border-gray-200">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="flex justify-center gap-1 mb-8">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-white text-white" />
+                <Star key={i} className="w-5 h-5 fill-black text-black" />
               ))}
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter font-display mb-8 leading-tight text-balance">
               Your competitors already look better online.
             </h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
               Let&apos;s fix that. Get a free redesign preview of your homepage — it takes 2 minutes, costs nothing, and shows you exactly what your business could look like.
             </p>
             <Link
               href="/audit"
-              className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+              className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold bg-black text-white hover:bg-gray-800 rounded-full transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(0,0,0,0.3)]"
             >
               Get My Free Redesign Preview <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="mt-6 text-sm text-gray-400 font-medium">No credit card. No commitment. Just clarity.</p>
+            <p className="mt-6 text-sm text-gray-500 font-medium">No credit card. No commitment. Just clarity.</p>
           </FadeIn>
         </div>
       </section>

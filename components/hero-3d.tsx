@@ -43,24 +43,24 @@ function Blob({ pointer }: { pointer: React.MutableRefObject<{ x: number; y: num
       {/* Outer wireframe shell */}
       <Icosahedron args={[2.1, 6]}>
         <MeshDistortMaterial
-          color="#ffffff"
+          color="#000000"
           wireframe
           distort={0.4}
           speed={1.6}
           transparent
-          opacity={0.16}
+          opacity={0.28}
         />
       </Icosahedron>
       {/* Inner solid core for depth */}
       <Icosahedron args={[1.35, 4]}>
         <MeshDistortMaterial
-          color="#a1a1aa"
+          color="#52525b"
           distort={0.5}
           speed={2.2}
           roughness={0.35}
           metalness={0.9}
           transparent
-          opacity={0.12}
+          opacity={0.18}
         />
       </Icosahedron>
     </group>
@@ -96,11 +96,11 @@ function Particles({ count = 900 }: { count?: number }) {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#ffffff"
+        color="#18181b"
         size={0.02}
         sizeAttenuation
         depthWrite={false}
-        opacity={0.55}
+        opacity={0.6}
       />
     </Points>
   );
