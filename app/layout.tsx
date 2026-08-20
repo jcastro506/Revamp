@@ -19,21 +19,21 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Revamp Services | Automation Set Up For Your Business",
-  description: "We set up the tools that text back your missed calls, follow up on every quote, and get you more 5-star reviews. Free audit for home service businesses.",
-  keywords: ["small business automation", "home service automation", "missed call text back", "free business audit", "business automation", "plumber automation", "HVAC automation"],
-  authors: [{ name: "Revamp Services" }],
+  title: "Revamp | Website Redesigns for Local Businesses",
+  description: "We redesign outdated local business websites — or build new ones from scratch — so you look as good online as you are in person. Get a free redesign preview.",
+  keywords: ["website redesign", "local business website", "small business web design", "website builder", "restaurant website", "contractor website", "dental website design", "free website redesign"],
+  authors: [{ name: "Revamp" }],
   openGraph: {
-    title: "Revamp Services | Automation Set Up For Your Business",
-    description: "We set up the tools that text back your missed calls, follow up on every quote, and get you more 5-star reviews. You do nothing — just see results.",
+    title: "Revamp | Website Redesigns for Local Businesses",
+    description: "We redesign outdated local business websites — or build new ones from scratch. See the before-and-after and get a free redesign preview.",
     type: "website",
     locale: "en_US",
-    siteName: "Revamp Services",
+    siteName: "Revamp",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Revamp Services | Automation Set Up For Your Business",
-    description: "We set up the tools that text back your missed calls, follow up on every quote, and get you more 5-star reviews. You do nothing — just see results.",
+    title: "Revamp | Website Redesigns for Local Businesses",
+    description: "We redesign outdated local business websites — or build new ones from scratch. See the before-and-after and get a free redesign preview.",
   },
   robots: {
     index: true,
