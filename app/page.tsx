@@ -266,22 +266,32 @@ export default function Home() {
       <section className="relative z-10 py-20 md:py-32 border-t border-gray-200 px-6 md:px-12 bg-white text-black">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Limited Availability</div>
+            <div className="text-sm font-bold tracking-widest text-gray-500 uppercase mb-4">Simple, Honest Pricing</div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter font-display mb-8 max-w-3xl text-balance">
-              We&apos;re taking on 10 founding clients — at a rate we won&apos;t offer again.
+              Custom pricing for what you need — and you&apos;ll never pay more than $500.
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <p className="text-xl text-gray-600 max-w-3xl leading-relaxed mb-16">
-              We&apos;re a new studio, and we&apos;re not going to pretend otherwise. Instead of fake testimonials, here&apos;s the deal: our first 10 clients get our lowest rate, our most hands-on attention, and a direct line to the people actually building your site. As we grow, prices go up and spots run out.
+              No agency games, no surprise invoices. Every project is quoted to exactly what your business needs — a quick refresh or a full custom build — with one promise up front: whatever we agree on, the price is capped at $500. That&apos;s the most you&apos;ll ever pay.
             </p>
+          </FadeIn>
+
+          <FadeIn delay={0.2} className="mb-12">
+            <div className="rounded-3xl bg-black text-white p-10 md:p-14 text-center">
+              <div className="text-sm font-bold tracking-widest text-gray-400 uppercase mb-4">Your Price Is Capped At</div>
+              <div className="text-7xl md:text-8xl font-display font-bold tracking-tighter mb-4">$500</div>
+              <p className="text-lg text-gray-300 max-w-xl mx-auto">
+                One-time, all-in. Most projects come in below this — you get a custom quote before anything starts, and it will never go higher than $500.
+              </p>
+            </div>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Founding Rate — Locked In", desc: "Redesigns start at $1,500 and full custom builds at $2,500. One-time, all-in. Optional care plan at $75/month for hosting, updates & backups.", highlight: "Save 30–50% vs. future pricing" },
-              { title: "White-Glove Process", desc: "You won't be handed to a junior team or lost in a queue. Every founding client works directly with the people designing and building the site.", highlight: "Direct access, not a ticket number" },
+              { title: "Priced To What You Need", desc: "Whether it's a light refresh or a brand-new site from scratch, we quote it to your actual needs — never a bloated agency package you'll only half-use.", highlight: "Custom, not cookie-cutter" },
+              { title: "A Real Person, Not A Queue", desc: "You work directly with the person designing and building your site. No account managers, no ticket numbers, no being passed around.", highlight: "Direct access, always" },
               { title: "You Only Pay If You Love It", desc: "Your redesign preview is free. You see the new look before you commit to anything. If it doesn't wow you, you walk away owing nothing.", highlight: "See it before you buy it" },
             ].map((card, i) => (
               <FadeIn key={i} delay={i * 0.15}>
@@ -302,7 +312,7 @@ export default function Home() {
               href="/audit"
               className="inline-flex items-center gap-2 px-8 py-4 text-lg font-bold bg-black text-white hover:bg-gray-800 rounded-full transition-all hover:scale-105"
             >
-              Claim Your Founding Spot <ArrowRight className="w-5 h-5" />
+              Get My Free Redesign Preview <ArrowRight className="w-5 h-5" />
             </Link>
           </FadeIn>
         </div>
@@ -322,7 +332,7 @@ export default function Home() {
               { q: "Will I lose my Google ranking or existing content?", a: "No. When we redesign an existing site, we carry over your content, keep your domain, and follow SEO best practices so you keep (and usually improve) your ranking. We never make you start from zero unless you want a totally fresh brand." },
               { q: "I don't have a website at all. Can you still help?", a: "Absolutely — that's a big part of what we do. We build complete websites from scratch, including the design, copywriting, images, booking forms, and Google Maps. You'll go from having nothing to looking like the most established business in your area." },
               { q: "Do I need to be technical or manage anything?", a: "Not at all. You fill out a 2-minute form and we handle everything else — design, build, domain, hosting, and launch. If you can send a text message, you can work with us. Nothing to install, nothing to maintain." },
-              { q: "How much does it cost?", a: "For founding clients, redesigns start at $1,500 and full custom builds at $2,500 — a one-time, all-in fee. There's an optional $75/month care plan for hosting, backups, and ongoing updates, but it's never required. You'll always see the price before you commit." },
+              { q: "How much does it cost?", a: "Pricing is custom to what your business actually needs — but with a hard cap: you'll never pay more than $500, one-time and all-in. Most projects land below that. You'll always get a clear quote before anything starts, and it will never go higher than the $500 ceiling." },
               { q: "How long does it take?", a: "Most redesigns go live in 1–3 weeks depending on how many pages you need. We move fast, keep you updated at every step, and never disappear mid-project." },
             ].map((faq, i) => (
               <FadeIn key={i} delay={i * 0.05}>
